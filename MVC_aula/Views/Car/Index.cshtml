@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Cars";
+    List<Business.Car> cars = ViewBag.Cars;
+}
+
+<script>
+
+   
+</script>
+<div class="jumbotron">
+    <h2>Lista de Carros</h2>
+
+    <table id="table" class="table">
+        <input type="text" placeholder="Buscar..." id="txtBusca"/>
+        <br />
+        <br />
+        <tr>
+            <td>PLACA</td>
+            <td>NOME</td>
+            <td>CARRO</td>
+            <td>COR</td>
+            <td></td>
+        </tr>
+        @foreach (var p in cars)
+         {
+    <tr>
+        <td>@p.placa</td>
+        <td>@p.nome</td>
+        <td>@p.carro</td>
+        <td>@p.cor</td>
+        <td><a href="/cars/@p.id/remover" class="btn btn-danger" onclick="ValidaExclusao(@p.id, event)">Remover</a></td>
+    </tr>                   
+         }
+        <tbody id="tbody"></tbody>
+    </table>
+    
+
+</div>
